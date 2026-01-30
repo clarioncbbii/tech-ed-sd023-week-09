@@ -12,13 +12,39 @@
 // https://clerk.com/docs/reference/nextjs/app-router/auth
 //- optional chaining will also be of great help this week
 
-export default function ProfilePage() {
+import { db } from "@/utils/dbConnection.js";
+import { currentUser } from "@clerk/nextjs/server";
+
+export default async function ProfilePage() {
+  const userInfo = await currentUser();
+
   //db queries to GET data from the tables
+  const { rows } = await db.query(
+    `SELECT clariville_posts.*, clariville_users.* FROM clariville_posts JOIN clariville_users ON clariville_posts.user_id = clariville_users.id;`,
+  );
+
+  console.log(rows);
 
   return (
     <>
-      <h1> User&apos;s info</h1>
-      <h1> User&apos;s posts</h1>
+      <h1> Hello {userInfo.username}, welcome to your profile! </h1>
+
+      <div>
+        <h2> YOUR PROFILE INFO:</h2>
+        <p>Username: {userInfo.username} </p>
+      </div>
+      <div>
+        <h2> YOUR POSTS:</h2>
+        {rows.map((user) => {
+          return (
+            <>
+              <div key={user.id}>
+                <p> {user.user_post}</p>
+              </div>
+            </>
+          );
+        })}
+      </div>
     </>
   );
 }
