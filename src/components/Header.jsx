@@ -9,7 +9,12 @@ import {
   SignUpButton,
 } from "@clerk/nextjs";
 
-export default function Header() {
+import Link from "next/link";
+import { currentUser } from "@clerk/nextjs/server";
+
+export default async function Header() {
+  const userInfo = await currentUser();
+
   //when the user is signed in, they see the user button; when the user is signed out, they see the login buttons
   return (
     <>

@@ -14,6 +14,7 @@
 
 import { db } from "@/utils/dbConnection.js";
 import { currentUser } from "@clerk/nextjs/server";
+import Link from "next/link";
 
 export default async function ProfilePage() {
   const userInfo = await currentUser();
@@ -27,6 +28,10 @@ export default async function ProfilePage() {
 
   return (
     <>
+      <Link href={`/posts`} className="text-blue-600">
+        HOME
+      </Link>
+
       <h1> Hello {userInfo.username}, welcome to your profile! </h1>
 
       <div>
