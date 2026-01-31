@@ -37,7 +37,11 @@ export default async function ProfilePage() {
       <div>
         <h2> YOUR PROFILE INFO:</h2>
         <p>Username: {userInfo.username} </p>
+        <p>Location: {rows[0].location} </p>
+        <p>Bio: {rows[0].bio} </p>
+        <p>Interests: {rows[0].interests} </p>
       </div>
+
       <div>
         <h2> YOUR POSTS:</h2>
         {rows.map((user) => {
