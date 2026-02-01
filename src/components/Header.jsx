@@ -1,3 +1,6 @@
+import { NavigationMenu } from "radix-ui";
+import styles from "./Header.module.css";
+
 //TODO: Clerk UI components for navigation and user auth info
 
 //Clerk components for UI
@@ -9,26 +12,35 @@ import {
   SignUpButton,
 } from "@clerk/nextjs";
 
-import Link from "next/link";
-import { currentUser } from "@clerk/nextjs/server";
-
 export default async function Header() {
-  const userInfo = await currentUser();
-
   //when the user is signed in, they see the user button; when the user is signed out, they see the login buttons
   return (
     <>
-      {/* if the user is signed out, they can see the sign up button and the sign in button*/}
-      <SignedOut>
-        <SignInButton />
-        <SignUpButton />
-      </SignedOut>
-      {/* if the user is signed in, they can see the user button */}
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
+      <NavigationMenu.Root className={styles.Root}>
+        <NavigationMenu.List className={styles.MenuList}>
+          <NavigationMenu.Item>
+            {/* if the user is signed out, they can see the sign up button and the sign in button*/}
+            <SignedOut>
+              <SignInButton />
+              <SignUpButton />
+            </SignedOut>
+            {/* if the user is signed in, they can see the user button */}
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </NavigationMenu.Item>
+        </NavigationMenu.List>
+      </NavigationMenu.Root>
     </>
   );
 }
 
-//*NOTE: We didn't have to build any of these components - they are all Clerk components
+// {/* if the user is signed out, they can see the sign up button and the sign in button*/}
+//       <SignedOut>
+//         <SignInButton />
+//         <SignUpButton />
+//       </SignedOut>
+//       {/* if the user is signed in, they can see the user button */}
+//       <SignedIn>
+//         <UserButton />
+//       </SignedIn>
