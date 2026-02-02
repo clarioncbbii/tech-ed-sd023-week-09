@@ -1,7 +1,8 @@
 //TODO: Render a home page with user navigation or intro to the app
 
 import Link from "next/link";
-import { SignedIn, SignedOut, currentUser } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
 
 export default async function HomePage() {
   const userInfo = await currentUser();
