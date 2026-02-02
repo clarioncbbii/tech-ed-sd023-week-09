@@ -11,7 +11,9 @@ export default function PostsErrorPage({ error }) {
       </h1>
       {/* the message property in 'error' will show the actual dev error */}
       <p>{error.message}</p>
-      <Link href={"/"}>HOME</Link>
+      <Link href={"/"} className="text-blue-600">
+        HOME
+      </Link>
     </>
   );
 }

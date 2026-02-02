@@ -5,10 +5,12 @@ import Link from "next/link";
 export default function HomePage() {
   return (
     <>
-      <h1>Home Page</h1>
+      <h1>HOME PAGE</h1>
+
       <Link href={`/posts`} className="text-blue-600">
-        ALL POST
+        ALL POSTS
       </Link>
+
       <Link href={`/profile/:username`} className="text-blue-600">
         YOUR PROFILE
       </Link>
