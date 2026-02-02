@@ -29,6 +29,9 @@ export default async function PostsPage() {
               <h1>{post.username} said:</h1>
               <p> &quot;{post.user_post}&quot;</p>
             </div>
+            <Link href={`/post/new-post`} className="text-blue-600">
+              CREATE A NEW POST
+            </Link>
           </>
         );
       })}
