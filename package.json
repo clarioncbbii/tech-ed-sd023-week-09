@@ -12,6 +12,7 @@
     "@clerk/nextjs": "^6.37.1",
     "@radix-ui/react-navigation-menu": "^1.2.14",
     "@radix-ui/themes": "^3.3.0",
+    "@tailwindcss/vite": "^4.1.18",
     "next": "16.1.6",
     "pg": "^8.17.2",
     "react": "19.2.3",
@@ -22,6 +23,6 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
-    "tailwindcss": "^4"
+    "tailwindcss": "^4.1.18"
   }
 }

@@ -15,16 +15,19 @@
 import { db } from "@/utils/dbConnection.js";
 import { currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
+import { auth } from "@clerk/nextjs/server";
 
 export default async function ProfilePage() {
+  const { userId } = await auth();
   const userInfo = await currentUser();
 
   //db queries to GET data from the tables
   const { rows } = await db.query(
-    `SELECT clariville_posts.*, clariville_users.* FROM clariville_posts JOIN clariville_users ON clariville_posts.user_id = clariville_users.id;`,
+    `SELECT clariville_posts.*, clariville_users.* FROM clariville_users LEFT JOIN clariville_posts ON clariville_posts.user_id = clariville_users.id WHERE clariville_users.id = $1`,
+    [userId],
   );
 
-  console.log(rows);
+  console.log(rows[0]);
 
   return (
     <>
@@ -36,7 +39,6 @@ export default async function ProfilePage() {
 
       <div>
         <h2> YOUR PROFILE INFO:</h2>
-        <p>Username: {userInfo.username} </p>
         <p>Location: {rows[0].location} </p>
         <p>Bio: {rows[0].bio} </p>
         <p>Interests: {rows[0].interests} </p>
@@ -54,6 +56,9 @@ export default async function ProfilePage() {
           );
         })}
       </div>
+      <Link href={`/profile/:username/edit`} className="text-blue-600">
+        EDIT YOUR PROFILE
+      </Link>
     </>
   );
 }

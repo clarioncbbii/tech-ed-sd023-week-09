@@ -26,8 +26,8 @@ export default async function PostsPage() {
         return (
           <>
             <div key={post.id}>
-              <h1>{post.username}</h1>
-              <p> {post.user_post}</p>
+              <h1>{post.username} said:</h1>
+              <p> &quot;{post.user_post}&quot;</p>
             </div>
           </>
         );
