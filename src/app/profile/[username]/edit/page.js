@@ -17,6 +17,7 @@ import { currentUser } from "@clerk/nextjs/server";
 // import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
+import Link from "next/link";
 
 export default async function EditProfilePage() {
   const { userId } = await auth();
@@ -55,7 +56,7 @@ export default async function EditProfilePage() {
 
   return (
     <>
-      <Link href={`/profile/:username`} className="text-blue-600">
+      <Link href={`/profile/${userInfo.username}`} className="text-blue-600">
         YOUR PROFILE
       </Link>
 

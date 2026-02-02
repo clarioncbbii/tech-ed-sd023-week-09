@@ -56,7 +56,10 @@ export default async function ProfilePage() {
           );
         })}
       </div>
-      <Link href={`/profile/:username/edit`} className="text-blue-600">
+      <Link
+        href={`/profile/${userInfo.username}/edit`}
+        className="text-blue-600"
+      >
         EDIT YOUR PROFILE
       </Link>
     </>
