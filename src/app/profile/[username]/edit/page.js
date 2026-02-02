@@ -55,6 +55,10 @@ export default async function EditProfilePage() {
 
   return (
     <>
+      <Link href={`/profile/:username`} className="text-blue-600">
+        YOUR PROFILE
+      </Link>
+
       <h1> Hello {userInfo.username}, edit your profile below: </h1>
 
       <form action={handleUpdate}>
