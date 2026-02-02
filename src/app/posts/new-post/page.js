@@ -2,6 +2,7 @@
 //- We also need to insert the userId into the posts table
 //- Make sure you have some SQL that READS the userId from the user's table OR use the auth() function from Clerk to get the userId
 
+import Link from "next/link";
 import { db } from "@/utils/dbConnection";
 import { redirect } from "next/navigation"; //! DO NOT USE THE DIST FOLDER VERSION IN THE DROP-DOWN MENU
 import { auth } from "@clerk/nextjs/server";
@@ -31,6 +32,10 @@ export default async function NewPostPage() {
 
   return (
     <>
+      <Link href={`/posts`} className="text-blue-600">
+        ALL POSTS
+      </Link>
+
       <h1>CREATE A POST - WE CANNOT WAIT TO READ IT!</h1>
       <form action={handleSubmit}>
         <label htmlFor="userPost">My post: </label>

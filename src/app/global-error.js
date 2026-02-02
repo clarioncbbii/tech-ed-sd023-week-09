@@ -6,6 +6,8 @@ export default function GlobalError({ error, reset }) {
     <html>
       <body>
         <h2>Something went wrong! Here, let&apos;s get you back on track.</h2>
+
+        <p> {error.message}</p>
         <button onClick={() => reset()}>HOME</button>
       </body>
     </html>
