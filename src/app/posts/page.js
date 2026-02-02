@@ -16,6 +16,10 @@ export default async function PostsPage() {
 
   return (
     <>
+      <Link href={`/`} className="text-blue-600">
+        HOME
+      </Link>
+
       <Link href={`/profile/${userInfo.username}`} className="text-blue-600">
         PROFILE{" "}
       </Link>
