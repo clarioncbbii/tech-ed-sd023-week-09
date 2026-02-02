@@ -3,10 +3,9 @@
 import Link from "next/link";
 import { SignedIn, SignedOut, currentUser } from "@clerk/nextjs";
 
-export default function HomePage() {
-
+export default async function HomePage() {
   const userInfo = await currentUser();
-  
+
   return (
     <>
       <h1>HOME PAGE</h1>
