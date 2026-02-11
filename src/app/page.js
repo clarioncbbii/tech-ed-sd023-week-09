@@ -17,7 +17,7 @@ export default async function HomePage() {
         <Link href={`/posts`} className="text-blue-600">
           ALL POSTS
         </Link>
-        <Link href={`/profile/${userInfo.username}`} className="text-blue-600">
+        <Link href={`/profile/${userInfo?.username}`} className="text-blue-600">
           YOUR PROFILE
         </Link>
       </SignedIn>
